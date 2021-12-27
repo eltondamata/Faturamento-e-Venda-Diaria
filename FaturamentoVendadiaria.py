@@ -8,8 +8,11 @@ from OracleDWH import conn
 from dateutil.relativedelta import relativedelta
 pd.options.display.float_format = '{:,.2f}'.format
 
-#Parametros
-ANOMES = int((pd.to_datetime("today") + relativedelta(months=-1)).strftime("%Y%m")) #Mes Anterior
+#MesAnterior (ate dia 15); MesAtual apos
+if int(pd.to_datetime("today").strftime("%d")) < 15:
+    ANOMES = int((pd.to_datetime("today") + relativedelta(months=-1)).strftime("%Y%m")) #Mes Anterior
+else:
+    ANOMES = int((pd.to_datetime("today") + relativedelta(months=0)).strftime("%Y%m")) #Mes Atual
 print('ANOMES:', ANOMES)
 #ANOMES = 202111
 
@@ -130,7 +133,7 @@ body = f"""<html><body>
 {tabfat}
 <p>Venda...</p>
 {tabvnd}
-<p><i>(email autom·tico)</i></p>
+<p><i>(email autom√°tico)</i></p>
 </body></html>
 """
 
