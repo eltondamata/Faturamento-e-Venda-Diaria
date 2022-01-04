@@ -122,7 +122,8 @@ from email.mime.base import MIMEBase
 from pretty_html_table import build_table
 from envia_mail import server
 
-address_book = ['elton.mata@martins.com.br']
+#address_book = ['elton.mata@martins.com.br']
+address_book = ['francisco.faria@martins.com.br', 'adriana.santos@martins.com.br', 'karina.castro@martins.com.br', 'elisangela.teixeira@martins.com.br', 'camila.santos@martins.com.br', 'giuliano.simao@martins.com.br']
 sender = 'elton.mata@martins.com.br'
 subject = f"Faturamento e Venda diaria {ANOMES}"
 tabfat = build_table(dffatdia, 'blue_light', text_align='right')
@@ -134,6 +135,7 @@ body = f"""<html><body>
 <p>Venda...</p>
 {tabvnd}
 <p><i>(email automático)</i></p>
+<p><i>Fonte: DWH.FTOFAT e DWH.FTOPED</i></p>
 </body></html>
 """
 
